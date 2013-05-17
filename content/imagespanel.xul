@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="gb2312"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://dphoto/locale/imagepanel.dtd"> 
+
+<window
+  id="dphoto-mainwindow" title="图片批量下载" style="background-color:##0FF;"
+   onload="mainWindowOnLoad();getDefaultSaveDirectory();"  
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<script type="application/x-javascript" src="chrome://dphoto/content/functions/overlay.js" />
+<?xml-stylesheet href="chrome://dphoto/skin/imagepanel.css" type="text/css"?>
+
+  <vbox flex="1">
+    <vbox flex="1">
+
+<hbox>
+      <label value="图片张数:"  style="font-weight:bold;"/>
+        <label id="imagenum" value="0"/>
+</hbox>
+
+      <spacer style="height: 5px"/>
+<hbox>
+<label value="选择:" style="font-size:16px;" />
+<menulist id="items" oncommand="selectedphoto();">
+  <menupopup>
+<menuitem label="none" value="none"/>
+
+<menuitem label="all" value="all"/>
+ <menuitem label="jpg" value="jpg"/>
+    <menuitem label="png" value="png"/>
+    <menuitem label="gif" value="gif"/>
+<menuitem label="ico" value="ico"/>
+
+  </menupopup>
+</menulist>
+</hbox>
+      <spacer style="height: 5px"/>
+      <hbox height="500" width="750" style="overflow:auto;">
+        <grid>
+          <columns>
+            <column/>
+            <column/>
+            <column/>
+          </columns>
+          <rows  id="imagesContainer">
+
+         </rows> 
+        </grid>
+      </hbox>
+    </vbox>
+    <spacer style="height: 10px"/>
+<hbox align="center">
+ <label control="your-filename" value="保存文件:"/>
+<textbox id="save-path"  align="center"  rows="1" cols="20" /> 
+ <button align="center" id="save-photo" label="选择" default="true" 
+	    oncommand="selectSaveDirectory()"/>
+<image  id="download-process" src="images/19.gif" style="display:none;"/>
+
+
+</hbox> 
+<spacer style="height: 20px"/>   
+<hbox>
+
+      <spacer flex="1"/>
+      <button id="downloadphotos" label="下载" default="true" 
+	    oncommand="download();"/>
+      <button id="mainWindow-cancel-button" label="取消" oncommand="window.close();"/>
+ <button id="mainWindow-cancel-button" label="关于" oncommand="about();"/>
+
+    </hbox>
+    <spacer style="height: 5px"/>
+  </vbox>
+</window>

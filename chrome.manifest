@@ -1,0 +1,8 @@
+content dphoto content/
+skin    dphoto  skin/
+
+locale  dphoto en-US locale/
+locale  dphoto zh-CN locale/
+overlay chrome://browser/content/browser.xul chrome://dphoto/content/browser-overlay.xul  appversion>3.6.*
+overlay chrome://browser/content/browser.xul chrome://dphoto/content/browser-overlay_old.xul  appversion<=3.6.* 
+style	   chrome://dphoto/content/imagepanel.xul chrome://dphoto/skin/imagepanel.css
